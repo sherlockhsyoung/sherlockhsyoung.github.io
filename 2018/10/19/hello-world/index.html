@@ -164,7 +164,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Always be A</p>
+        <p class="site-subtitle">Always be A!</p>
       
   </div>
 
@@ -271,7 +271,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="小A前端组">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://jmyblog.top/images/avatar.jpg">
+      <meta itemprop="image" content="https://i.loli.net/2018/10/20/5bcb16a6ca9a1.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -312,6 +312,18 @@
           
 
           
+          
+             <span id="/2018/10/19/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
           
 
           
@@ -503,11 +515,11 @@ var jiathis_config={
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://jmyblog.top/images/avatar.jpg"
+                src="https://i.loli.net/2018/10/20/5bcb16a6ca9a1.jpg"
                 alt="小A前端组" />
             
               <p class="site-author-name" itemprop="name">小A前端组</p>
-              <p class="site-description motion-element" itemprop="description">有趣的灵魂</p>
+              <p class="site-description motion-element" itemprop="description">我们是一群有趣的人儿</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -538,8 +550,32 @@ var jiathis_config={
 
           
           
-
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                推荐网址
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://segmentfault.com/" title="segmentfault" target="_blank">segmentfault</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://stackoverflow.com/" title="stackoverflow" target="_blank">stackoverflow</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/question/39721183?utm_source=wechat_session&utm_medium=social" title="知乎" target="_blank">知乎</a>
+                  </li>
+                
+              </ul>
+            </div>
           
+		  <br>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29498914&auto=1&height=66"></iframe>
+		  
 
         </div>
       </section>
@@ -574,8 +610,7 @@ var jiathis_config={
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -583,16 +618,21 @@ var jiathis_config={
 
   
 </div>
-<div class="powered-by">
-<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
-  本站访客数:<span id="busuanzi_value_site_uv"></span>
-</span>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共73字</span>
 </div>
-<!--
+
+
+<span class="post-meta-divider">|</span>
+
 
   <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-
+<!--
 
   <span class="post-meta-divider">|</span>
 
@@ -776,6 +816,113 @@ var jiathis_config={
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("uUihR20zbqW1A0FKtEOUG7UD-gzGzoHsz", "eAUknO9DmDYFH4WzuEN24E2i");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
