@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[如何优雅的使用本博客]]></title>
+    <url>%2F2018%2F10%2F21%2F%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8%E6%9C%AC%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法[toc] 1.必要的准备工作原因：由于采用的是 Hexo + Github 搭建的博客且Hexo是基于Node.js的静态博客框架，所以不同电脑同步更新博客内容时，也需要先在本地搭建hexo博客，再将修改更新后的博客推送到github详情参见这篇博文的异地同步博客内容 安装git git的相关教程看廖雪峰的博客 下载node.js并安装 安装Hexo 2.如何写博文1.在Blog/blogl路径右键打开,选择git bash2.在该窗口输入1npm n &quot;你的文章标题&quot; 3.在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。注：vscode可以编写md，安装相应插件(Markdown All in One、Markdown Preview Enhanced)即可4.打开新建的md文件后，会看到首部，需要做一些改动123456789101112---title: 你的文章titleabstract: 这篇文章已加密message: 请输入密码copyright: turedate: （相应时间）author: categories: tags: top: password:--- author: 这里需要填写作者的姓名 categories: 这是分类，可写你所想要划分到的已有的文章类别的名称或者新建一个分类, 但是，分类只能写一个 如： 1categories: 前端基础 tags: 即标签，可写多个，可新建 如： 1tags: js学习 top：这个值为数值，需要将文章置顶时才写，数值越大置的越高（也不要设太大）;一般默认为空，即表示首页文章排版按时间排序 password: 文章如需加密，在此处写密码即可。如不加密，不填即可 上面的abstract：是该加密博客的摘要，会显示在博客的列表页，可任君修改 message: 这个是博客查看时，密码输入框上面的描述性文字，可任君修改 5.之后就可以在首部下面编写md，编写时有两个需注意的地方 如何设置阅读全文 利用下面的这个手动在需要的地方进行截断 1&lt;!-- more --&gt; 关于图床 博文里面插入图片放在本地source文件夹中不太好，所以要用图片外部链接 图床就是能对本地上传的图片生成图片外部链接的网站 推荐用这个网站 https://sm.ms 6.md写完保存后，最好先在本地试一下，再推送到github 本地试运行，同样git命令,然后浏览器地址输入localhost:4000看看 123hexo clean hexo ghexo s 上传到github 1hexo d]]></content>
+      <categories>
+        <category>使用教程</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2018%2F10%2F19%2Fhello-world%2F</url>
     <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
