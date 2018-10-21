@@ -88,10 +88,17 @@
 <meta property="og:site_name" content="小A前端组的博客">
 <meta property="og:description" content="欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-21T09:57:40.761Z">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc1013c831a.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc120c3cdfd.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcb61a936e5f.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3ecd39c9f.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3d6752441.png">
+<meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3e033d2c7.png">
+<meta property="og:updated_time" content="2018-10-21T10:39:56.668Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何优雅的使用本博客">
 <meta name="twitter:description" content="欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法">
+<meta name="twitter:image" content="https://i.loli.net/2018/10/21/5bcc1013c831a.png">
 
 
 
@@ -395,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.2k
+                  2.1k
                 </span>
               
 
@@ -411,7 +418,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  9
+                  8
                 </span>
               
             </div>
@@ -432,99 +439,275 @@
       
 
       
-        <p>欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法<br><a id="more"></a><br>[toc]</p>
-<h1 id="1-必要的准备工作"><a href="#1-必要的准备工作" class="headerlink" title="1.必要的准备工作"></a>1.必要的准备工作</h1><p>原因：由于采用的是 Hexo + Github 搭建的博客且Hexo是基于Node.js的静态博客框架，所以不同电脑同步更新博客内容时，也需要先在本地搭建hexo博客，再将修改更新后的博客推送到github<br><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">详情参见这篇博文的异地同步博客内容</a></p>
+        <p>欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法<br><a id="more"></a></p>
+<h1 id="必要的准备工作"><a href="#必要的准备工作" class="headerlink" title="必要的准备工作"></a>必要的准备工作</h1><p>原因：由于采用的是 Hexo + Github 搭建的博客且Hexo是基于Node.js的静态博客框架，所以不同电脑同步更新博客内容时，也需要先在本地搭建hexo博客，再将修改更新后的博客推送到github<br><a href="https://thief.one/2017/03/03/Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/" target="_blank" rel="noopener">详情参见这篇博文的异地同步博客内容</a></p>
 <h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><ul>
-<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743256916071d599b3aed534aaab22a0db6c4e07fd0000" target="_blank" rel="noopener">git的相关教程看廖雪峰的博客</a></li>
+<li><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013743256916071d599b3aed534aaab22a0db6c4e07fd0000" target="_blank" rel="noopener">git的相关教程看廖雪峰的博客</a></p>
+</li>
 <li><p>安装后，需要多配置一个ssh来连接我的github仓库，<a href="https://www.jianshu.com/p/cd20ac5b2a3e" target="_blank" rel="noopener">如何配置参考这里</a></p>
 <ul>
-<li><p>注：里面执行ssh-add时添加私钥到git中会报错Could not open a connection to your authentication agent，需要在执行命令<figure class="highlight plain"><figcaption><span>~/.ssh/id_rsa_two```前执行以下两行命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></p>
-<p>  exec ssh-agent bash<br>  eval `ssh-agent</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+ 请将生成的id_rsa_two_pub的密钥发给我，我好手动添加进github仓库</span><br><span class="line">+ 博客的网址：https://sherlockhsyoung.github.io/</span><br><span class="line">+ 我的github:(配置ssh可能会用到吧，虽然我觉得用别的也没关系)</span><br><span class="line">    + 账户名：sherlockhsyoung</span><br><span class="line">    + 邮箱：samuelhsy@163.com </span><br><span class="line">+ 远程连接成功后，使用git clone 克隆hexo文件到本地，在本地新建文件夹hexoFiles，右键打开git bash，务必使用以下命令</span><br></pre></td></tr></table></figure>
+<li><p>注：里面执行ssh-add时添加私钥到git中会报错Could not open a connection to your authentication agent，需要在执行命令$ssh-add ~/.ssh/id_rsa_two前执行以下两行命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exec</span> ssh-agent </span><br><span class="line"><span class="built_in">eval</span> `ssh-agent</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>请将生成的id_rsa_two_pub的密钥发给我，我好手动添加进github仓库</p>
+</li>
+<li><p>博客的网址：<a href="https://sherlockhsyoung.github.io/">https://sherlockhsyoung.github.io/</a></p>
+</li>
+<li><p>我的github:(配置ssh可能会用到吧，虽然我觉得用别的也没关系)</p>
+<ul>
+<li>账户名：sherlockhsyoung</li>
+<li>邮箱：<a href="mailto:samuelhsy@163.com" target="_blank" rel="noopener">samuelhsy@163.com</a> </li>
+</ul>
+</li>
+<li><p>远程连接成功后，使用git clone 克隆hexo文件到本地，在本地新建文件夹hexoFiles，右键打开git bash，务必使用以下命令</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:sherlockhsyoung/hexoFiles.git</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>这里说明一下：</p>
+<ul>
+<li><p>sherlockhsyoung.github.io存放的是生成的静态的hexo页面</p>
+</li>
+<li><p>hexoFiles存放的是hexo的源文件，也就是我们可以修改的地方</p>
+</li>
+<li><p>每次更新博客时，需要克隆最新的hexoFiles项目到本地，将项目里的除了.git和README.md之外的所有文件夹替换本地的hexo的blog目录</p>
+</li>
+<li><p>所以每次修改或更新博文后一定也要同步hexoFiles！！！</p>
 </li>
 </ul>
 </li>
 </ul>
-<p>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:sherlockhsyoung/hexoFiles.git<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+ 这里说明一下：</span><br><span class="line">    + sherlockhsyoung.github.io存放的是生成的静态的hexo页面</span><br><span class="line">    + hexoFiles存放的是hexo的源文件，也就是我们可以修改的地方</span><br><span class="line">    + 每次更新博客时，需要克隆最新的hexoFiles项目到本地，将项目里的除了.git和README.md之外的所有文件夹替换本地的hexo的blog目录</span><br><span class="line">    + 所以每次修改或更新博文后一定也要同步hexoFiles！！！</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 下载node.js并安装</span><br><span class="line">+ [官网下载地址](https://nodejs.org/en/download/)</span><br><span class="line">+ 会自动配置环境变量，一路默认就行，也可更改文件安装路径</span><br><span class="line">+ 打开命令行，输入一下命令看是否安装成功</span><br><span class="line">![image](https://i.loli.net/2018/10/21/5bcc1013c831a.png)</span><br><span class="line"></span><br><span class="line">## 安装Hexo</span><br><span class="line">+ 新建个文件夹 ，右键打开git bash(后面我们的所有操作基本都是使用git命令)</span><br></pre></td></tr></table></figure></p>
-<p>npm install -g hexo-cli<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 然后</span><br></pre></td></tr></table></figure></p>
-<p>npm install hexo –save<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 然后检查是否安装完成,出现如下则安装成功</span><br></pre></td></tr></table></figure></p>
-<p>hexo -v<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![image](https://i.loli.net/2018/10/21/5bcc120c3cdfd.png)</span><br><span class="line">+ 初始化,这里的blog表示新建了的一个blog文件夹，里面是hexo的主要内容（需要翻墙，而且过程有点长，网速要好）</span><br></pre></td></tr></table></figure></p>
-<p>hexo init blog<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 进入blog文件夹，将前面克隆到本地的hexoFiles文件夹除了.git和README.md之外的所有内容替换到此文件夹中，右键打开git bash，执行下面命令</span><br></pre></td></tr></table></figure></p>
-<p>hexo clean<br>hexo g<br>hexo s<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 打开浏览器，输入地址：localhost:4000</span><br><span class="line">出现博客页面，则ok，若报错，尝试更换端口</span><br></pre></td></tr></table></figure></p>
-<pre><code>hexo s -p 5000
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**补充hexo主要用到的命令用法：**</span><br><span class="line">+  新建文章</span><br></pre></td></tr></table></figure>
-
-hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 清除缓存(ctrl+f5可以强制刷新浏览器)</span><br></pre></td></tr></table></figure>
-
-hexo clean
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+  生成静态页面</span><br></pre></td></tr></table></figure>
-
-hexo g == hexo generate
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+  启动服务预览,Hexo会监视文件变动并自动更新，无须重启服务器</span><br></pre></td></tr></table></figure>
-
-hexo s == hexo server
-//debug模式
-hexo server --debug
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 部署到服务器</span><br></pre></td></tr></table></figure>
-
-hexo d == hexo deploy 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">+ 更改端口</span><br></pre></td></tr></table></figure>
-
-hexo server -p 5000 #
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">以上所有参考:</span><br><span class="line">[GitHub+Hexo 搭建个人网站详细教程](https://zhuanlan.zhihu.com/p/26625249?utm_source=qq&amp;utm_medium=social)</span><br><span class="line">[史上最详细的Hexo博客搭建图文教程](https://xuanwo.org/2015/03/26/hexo-intor/#%E5%87%86%E5%A4%87)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"># 2.如何写博文</span><br><span class="line">1.在Blog/blogl路径右键打开,选择git bash</span><br><span class="line">![image](https://i.loli.net/2018/10/21/5bcb61a936e5f.png)</span><br><span class="line">2.在该窗口输入</span><br></pre></td></tr></table></figure>
-</code></pre><p>npm n “你的文章标题”<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3.在  Blog\blog\source\\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</span><br><span class="line">注：vscode可以编写md，安装相应插件(Markdown All in One、Markdown Preview Enhanced)即可</span><br><span class="line">4.打开新建的md文件后，会看到首部，需要做一些改动</span><br></pre></td></tr></table></figure></p>
+<h2 id="下载node-js并安装"><a href="#下载node-js并安装" class="headerlink" title="下载node.js并安装"></a>下载node.js并安装</h2><ul>
+<li><p><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">官网下载地址</a></p>
+</li>
+<li><p>会自动配置环境变量，一路默认就行，也可更改文件安装路径</p>
+</li>
+<li><p>打开命令行，输入一下命令看是否安装成功<br><img src="https://i.loli.net/2018/10/21/5bcc1013c831a.png" alt="image"></p>
+</li>
+</ul>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><ul>
+<li>新建个文件夹 ，右键打开git bash(后面我们的所有操作基本都是使用git命令)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo --save</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后检查是否安装完成,出现如下则安装成功</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2018/10/21/5bcc120c3cdfd.png" alt="image"></p>
+<ul>
+<li>初始化,这里的blog表示新建了的一个blog文件夹，里面是hexo的主要内容（需要翻墙，而且过程有点长，网速要好）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init blog</span><br></pre></td></tr></table></figure>
+<ul>
+<li>进入blog文件夹，将前面克隆到本地的hexoFiles文件夹除了.git和README.md之外的所有内容替换到此文件夹中，右键打开git bash，执行下面命令</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<ul>
+<li>打开浏览器，输入地址：localhost:4000<br>出现博客页面，则ok，若报错，尝试更换端口</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s -p 5000</span><br></pre></td></tr></table></figure>
+<p><strong>补充hexo主要用到的命令用法：</strong></p>
+<ul>
+<li><p>新建文章</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的博客&quot; == hexo new &quot;我的博客&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>清除缓存(ctrl+f5可以强制刷新浏览器)</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成静态页面</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g == hexo generate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动服务预览,Hexo会监视文件变动并自动更新，无须重启服务器</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s == hexo server</span><br><span class="line">//debug模式</span><br><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署到服务器</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d == hexo deploy</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更改端口</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server -p 5000 #</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>以上所有参考:</p>
+<p><a href="https://zhuanlan.zhihu.com/p/26625249?utm_source=qq&amp;utm_medium=social" target="_blank" rel="noopener">GitHub+Hexo 搭建个人网站详细教程</a></p>
+<p><a href="https://xuanwo.org/2015/03/26/hexo-intor/#%E5%87%86%E5%A4%87" target="_blank" rel="noopener">史上最详细的Hexo博客搭建图文教程</a></p>
 <hr>
-<p>title: 你的文章title<br>abstract: 这篇文章已加密<br>message: 请输入密码<br>copyright: ture<br>date: （相应时间）<br>author:<br>categories:<br>tags:<br>top: </p>
-<h2 id="password"><a href="#password" class="headerlink" title="password:"></a>password:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ author:  这里需要填写作者的姓名</span><br><span class="line">+ categories:  这是分类，可写你所想要划分到的已有的文章类别的名称或者新建一个分类,               但是，分类只能写一个</span><br><span class="line">    + 如：</span><br></pre></td></tr></table></figure>
-<pre><code>    categories: 前端基础 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ tags: 即标签，可写多个，可新建</span><br><span class="line">    + 如：</span><br></pre></td></tr></table></figure>
-
-    tags: js学习 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">+ top：这个值为数值，需要将文章置顶时才写，数值越大置的越高（也不要设太大）;一般默认为空，即表示首页文章排版按时间排序</span><br><span class="line">+ password:     文章如需加密，在此处写密码即可。如不加密，不填即可</span><br><span class="line">    + 上面的abstract：是该加密博客的摘要，会显示在博客的列表页，可任君修改</span><br><span class="line">    + message: 这个是博客查看时，密码输入框上面的描述性文字，可任君修改</span><br><span class="line"></span><br><span class="line">5.之后就可以在首部下面编写md，编写时有两个需注意的地方</span><br><span class="line">+ 如何设置阅读全文</span><br><span class="line">    + 利用下面的这个手动在需要的地方进行截断</span><br></pre></td></tr></table></figure>
-
-&lt;!-- more --&gt;   
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    + 关于图床</span><br><span class="line">        + 博文里面插入图片放在本地source文件夹中不太好，所以要用图片外部链接</span><br><span class="line">        + 图床就是能对本地上传的图片生成图片外部链接的网站</span><br><span class="line">        + 推荐用这个网站  [https://sm.ms](https://sm.ms)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6.md写完保存后，最好先在本地试一下，再推送到github</span><br><span class="line">+ 本地试运行，同样git命令,然后浏览器地址输入localhost:4000看看</span><br></pre></td></tr></table></figure>
-
-hexo clean 
-hexo g
-hexo s
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 上传到github</span><br></pre></td></tr></table></figure>
-
-hexo d
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果报错，试试下面</span><br></pre></td></tr></table></figure>
-
-npm install hexo-deployer-git –save
-hexo d
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ 同步hexoFiles项目，一定要同步！！</span><br><span class="line">    + 如何同步：</span><br><span class="line">        先复制以下文件过来</span><br><span class="line">        + scaffolds</span><br><span class="line">        + source</span><br><span class="line">        + themes</span><br><span class="line">        + .gitignore</span><br><span class="line">        + _config.yml</span><br><span class="line">        + db.json</span><br><span class="line">        + package.json</span><br><span class="line">        + package-lock.json</span><br></pre></td></tr></table></figure>
-
-    git status
-    git add .
-    git commit -m &quot;你的更新信息&quot;
-    git remote add origin git@github.com:sherlockhsyoung/hexoFiles.git
-    git push origin master 
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ 如果不幸遇到错误</span><br></pre></td></tr></table></figure>
-
-    $ git push origin master
-    To github.com:sherlockhsyoung/hexoFiles.git
-    ! [rejected]        master -&gt; master (fetch first)
-    error: failed to push some refs to &apos;git@github.com:sherlockhsyoung/hexoFiles.git&apos;
-    hint: Updates were rejected because the remote contains work that you do
-    hint: not have locally. This is usually caused by another repository pushing
-    hint: to the same ref. You may want to first integrate the remote changes
-    hint: (e.g., &apos;git pull ...&apos;) before pushing again.
-    hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ 解决方法</span><br><span class="line">+ 强制push</span><br></pre></td></tr></table></figure>
-
-        git push origin master --force
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">        + [stackoverflow上的完整答案](https://stackoverflow.com/questions/28429819/rejected-master-master-fetch-first)</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"># 3.相关的第三方服务</span><br><span class="line">+ [Leancloud](https://leancloud.cn/):一个提供数据存储和统计的第三方服务</span><br><span class="line">    + 账号：samuelhsy@163.com</span><br><span class="line">    + 密码：Qianduan666,</span><br><span class="line">    + 相关的说明</span><br><span class="line">        + 记录文章访问量的唯一标识符是文章的发布日期和文章的标题，因此请确保这两个数值组合的唯一性，如果更改了这两个数值，会造成文章阅读数值的清零重计。</span><br><span class="line">        + 初始的文章统计量显示为0。在配置好阅读量统计服务之后，第一次打开博文时，会自动向服务器发送数据，该数据会被记录在对应的应用的Counter表中。</span><br><span class="line">        + 修改Counter表中的time字段的数值，可以修改文章的访问量。双击具体的数值，修改之后回车即可保存。</span><br><span class="line">+ [来必力](https://www.livere.com/login_form)：一个管理评论的第三方服务</span><br><span class="line">    + 账号：samuelhsy@163.com</span><br><span class="line">    + 密码：qianduan666</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"># 4.主题美化</span><br><span class="line">头像和网易云音乐都是临时改的，你们可以自定义改成你们喜欢的</span><br><span class="line">+ 头像更改：</span><br><span class="line">    + 修改blog\themes\next\\_config.yml</span><br><span class="line">    ![image](https://i.loli.net/2018/10/21/5bcc3ecd39c9f.png)</span><br><span class="line">    + 重新生成部署就ok</span><br><span class="line">+ 更改网易云音乐：</span><br><span class="line">    + 打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器</span><br><span class="line">    ![image](https://i.loli.net/2018/10/21/5bcc3d6752441.png)</span><br><span class="line">    + 复制代码，修改 blog\themes\next\layout\\_macro的sidebar.swig文件 139行那里</span><br><span class="line">    ![image](https://i.loli.net/2018/10/21/5bcc3e033d2c7.png)</span><br><span class="line">    + 同样重新生成部署就ok</span><br><span class="line"></span><br><span class="line">想美化其它的参考下面链接</span><br><span class="line">+ Hexo: https://hexo.io/</span><br><span class="line">+ [next主题配置](http://theme-next.iissnan.com/theme-settings.html)</span><br><span class="line">+ [hexo的next主题个性化教程:打造炫酷网站](https://zhuanlan.zhihu.com/p/28128674)</span><br><span class="line">+ 大部分都能做的美化都做了</span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"># 5.一些坑</span><br><span class="line">+ 修改本地所有的配置文件时，注意所有的冒号:后边都要加一个空格，否则执行 hexo 命令时会报错</span><br><span class="line">+ hexo根目录千万不能把.git文件夹复制过去，不然提交的就不是public目录了</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***</span><br><span class="line"># 6.目前存在的问题</span><br><span class="line">+ 网易云音乐页面加载后不能自动播放</span><br><span class="line">网页console报错</span><br></pre></td></tr></table></figure>
-
-Uncaught (in promise) DOMException: play() failed because the user didn&apos;t interact with the document first.
-```
-</code></pre><ul>
-<li>hexo集成的jiathis分享插件有问题，需要更改</li>
-<li>关于的页面还没写</li>
+<h1 id="如何写博文"><a href="#如何写博文" class="headerlink" title="如何写博文"></a>如何写博文</h1><h2 id="在Blog-blogl路径右键打开-选择git-bash"><a href="#在Blog-blogl路径右键打开-选择git-bash" class="headerlink" title="在Blog/blogl路径右键打开,选择git bash"></a>在Blog/blogl路径右键打开,选择git bash</h2><p><img src="https://i.loli.net/2018/10/21/5bcb61a936e5f.png" alt="image"></p>
+<h2 id="在该窗口输入"><a href="#在该窗口输入" class="headerlink" title="在该窗口输入"></a>在该窗口输入</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm n <span class="string">"你的文章标题"</span></span><br></pre></td></tr></table></figure>
+<h2 id="在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。"><a href="#在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。" class="headerlink" title="在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。"></a>在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</h2><p>注：vscode可以编写md，安装相应插件(Markdown All in One、Markdown Preview Enhanced)即可</p>
+<h2 id="打开新建的md文件"><a href="#打开新建的md文件" class="headerlink" title="打开新建的md文件"></a>打开新建的md文件</h2><p>会看到首部如下，需要做一些改动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的文章title</span><br><span class="line">abstract: 这篇文章已加密</span><br><span class="line">message: 请输入密码</span><br><span class="line">copyright: ture</span><br><span class="line">date: （相应时间）</span><br><span class="line">author: </span><br><span class="line">categories: </span><br><span class="line">tags: </span><br><span class="line">top: </span><br><span class="line">password:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>author:  这里需要填写作者的姓名</p>
+</li>
+<li><p>categories:  这是分类，可写你所想要划分到的已有的文章类别的名称或者新建一个分类,               但是，分类只能写一个</p>
+<ul>
+<li><p>如：</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">categories: 前端基础</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>tags: 即标签，可写多个，可新建</p>
+<ul>
+<li><p>如：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tags: js学习</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>top：这个值为数值，需要将文章置顶时才写，数值越大置的越高（也不要设太大）;一般默认为空，即表示首页文章排版按时间排序</p>
+</li>
+<li><p>password:     文章如需加密，在此处写密码即可。如不加密，不填即可</p>
+<ul>
+<li><p>上面的abstract：是该加密博客的摘要，会显示在博客的列表页，可任君修改</p>
+</li>
+<li><p>message: 这个是博客查看时，密码输入框上面的描述性文字，可任君修改</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="之后就可以编写md"><a href="#之后就可以编写md" class="headerlink" title="之后就可以编写md"></a>之后就可以编写md</h2><p>编写时有两个需注意的地方:</p>
+<ul>
+<li><p>如何设置阅读全文</p>
+<p>利用下面的这个手动在需要的地方进行截断</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- more --&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>关于图床</p>
+<ul>
+<li><p>博文里面插入图片放在本地source文件夹中不太好，所以要用图片外部链接</p>
+</li>
+<li><p>图床就是能对本地上传的图片生成图片外部链接的网站</p>
+</li>
+<li><p>推荐用这个网站  <a href="https://sm.ms" target="_blank" rel="noopener">https://sm.ms</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="推送到github"><a href="#推送到github" class="headerlink" title="推送到github"></a>推送到github</h2><p>写完记得保存，最好在本地先试一下</p>
+<ul>
+<li><p>本地试运行，同样git命令,然后浏览器地址输入localhost:4000看看</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean </span><br><span class="line">hexo g</span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>上传到github</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br><span class="line">//如果报错试试下面命令</span><br><span class="line">npm install hexo-deployer-git –save</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>同步hexoFiles项目，一定要同步！！</p>
+<ul>
+<li><p>如何同步：</p>
+<p>  先复制以下文件过来</p>
+<ul>
+<li>scaffolds</li>
+<li>source</li>
+<li>themes</li>
+<li>.gitignore</li>
+<li>_config.yml</li>
+<li>db.json</li>
+<li>package.json</li>
+<li><p>package-lock.json</p>
+<p>如何执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"你的更新信息"</span></span><br><span class="line">git remote add origin git@github.com:sherlockhsyoung/hexoFiles.git</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>如果不幸遇到错误</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">To github.com:sherlockhsyoung/hexoFiles.git</span><br><span class="line">! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to <span class="string">'git@github.com:sherlockhsyoung/hexoFiles.git'</span></span><br><span class="line">hint: Updates were rejected because the remote contains work that you <span class="keyword">do</span></span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., <span class="string">'git pull ...'</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>解决方法</p>
+</li>
+<li><p>强制push</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><a href="https://stackoverflow.com/questions/28429819/rejected-master-master-fetch-first" target="_blank" rel="noopener">stackoverflow上的完整答案</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="相关的第三方服务"><a href="#相关的第三方服务" class="headerlink" title="相关的第三方服务"></a>相关的第三方服务</h1><ul>
+<li><p><a href="https://leancloud.cn/" target="_blank" rel="noopener">Leancloud</a>:一个提供数据存储和统计的第三方服务</p>
+<ul>
+<li><p>账号：<a href="mailto:samuelhsy@163.com" target="_blank" rel="noopener">samuelhsy@163.com</a></p>
+</li>
+<li><p>密码：Qianduan666,</p>
+</li>
+<li><p>相关的说明</p>
+<ul>
+<li><p>记录文章访问量的唯一标识符是文章的发布日期和文章的标题，因此请确保这两个数值组合的唯一性，如果更改了这两个数值，会造成文章阅读数值的清零重计。</p>
+</li>
+<li><p>初始的文章统计量显示为0。在配置好阅读量统计服务之后，第一次打开博文时，会自动向服务器发送数据，该数据会被记录在对应的应用的Counter表中。</p>
+</li>
+<li><p>修改Counter表中的time字段的数值，可以修改文章的访问量。双击具体的数值，修改之后回车即可保存。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="https://www.livere.com/login_form" target="_blank" rel="noopener">来必力</a>：一个管理评论的第三方服务</p>
+<ul>
+<li><p>账号：<a href="mailto:samuelhsy@163.com" target="_blank" rel="noopener">samuelhsy@163.com</a></p>
+</li>
+<li><p>密码：qianduan666</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="主题美化"><a href="#主题美化" class="headerlink" title="主题美化"></a>主题美化</h1><p>头像和网易云音乐都是临时改的，你们可以自定义改成你们喜欢的</p>
+<ul>
+<li><p>头像更改：</p>
+<ul>
+<li><p>修改blog\themes\next\_config.yml<br><img src="https://i.loli.net/2018/10/21/5bcc3ecd39c9f.png" alt="image"></p>
+</li>
+<li><p>重新生成部署就ok</p>
+</li>
+</ul>
+</li>
+<li><p>更改网易云音乐：</p>
+<ul>
+<li><p>打开网页版的网易云音乐，选择喜欢的音乐，点击生成外链播放器<br><img src="https://i.loli.net/2018/10/21/5bcc3d6752441.png" alt="image"></p>
+</li>
+<li><p>复制代码，修改 blog\themes\next\layout\_macro的sidebar.swig文件 139行那里<br><img src="https://i.loli.net/2018/10/21/5bcc3e033d2c7.png" alt="image"></p>
+</li>
+<li><p>同样重新生成部署就ok</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>想美化其它的参考下面链接</p>
+<ul>
+<li><p>Hexo: <a href="https://hexo.io/" target="_blank" rel="noopener">https://hexo.io/</a></p>
+</li>
+<li><p><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="noopener">next主题配置</a></p>
+</li>
+<li><p><a href="https://zhuanlan.zhihu.com/p/28128674" target="_blank" rel="noopener">hexo的next主题个性化教程:打造炫酷网站</a></p>
+</li>
+<li><p>大部分都能做的美化都做了</p>
+</li>
+</ul>
+<hr>
+<h1 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h1><ul>
+<li><p>修改本地所有的配置文件时，注意所有的冒号:后边都要加一个空格，否则执行 hexo 命令时会报错</p>
+</li>
+<li><p>hexo根目录千万不能把.git文件夹复制过去，不然提交的就不是public目录了</p>
+</li>
+</ul>
+<hr>
+<h1 id="目前存在的问题"><a href="#目前存在的问题" class="headerlink" title="目前存在的问题"></a>目前存在的问题</h1><ul>
+<li><p>网易云音乐页面加载后不能自动播放<br>网页console报错</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught (<span class="keyword">in</span> promise) DOMException: play() failed because the user didn<span class="string">'t interact with the document first.</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>hexo集成的jiathis分享插件有问题，需要更改</p>
+</li>
+<li><p>关于的页面还没写</p>
+</li>
 </ul>
 
       
@@ -547,7 +730,7 @@ Uncaught (in promise) DOMException: play() failed because the user didn&apos;t i
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <p><span>本文作者:</span><a href="#">黄思扬</a></p>
   <p><span>发布时间:</span>2018年10月21日 - 00:10</p>
-  <p><span>最后更新:</span>2018年10月21日 - 17:10</p>
+  <p><span>最后更新:</span>2018年10月21日 - 18:10</p>
   <p><span>原始链接:</span><a href="/2018/10/21/如何优雅的使用本博客/" title="如何优雅的使用本博客">https://sherlockhsyoung.github.io/2018/10/21/如何优雅的使用本博客/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sherlockhsyoung.github.io/2018/10/21/如何优雅的使用本博客/"  aria-label="复制成功！"></i></span>
   </p>
@@ -761,7 +944,7 @@ Uncaught (in promise) DOMException: play() failed because the user didn&apos;t i
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-必要的准备工作"><span class="nav-number">1.</span> <span class="nav-text">1.必要的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password"><span class="nav-number">1.2.</span> <span class="nav-text">password:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#必要的准备工作"><span class="nav-number">1.</span> <span class="nav-text">必要的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载node-js并安装"><span class="nav-number">1.2.</span> <span class="nav-text">下载node.js并安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.3.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何写博文"><span class="nav-number">2.</span> <span class="nav-text">如何写博文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Blog-blogl路径右键打开-选择git-bash"><span class="nav-number">2.1.</span> <span class="nav-text">在Blog/blogl路径右键打开,选择git bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在该窗口输入"><span class="nav-number">2.2.</span> <span class="nav-text">在该窗口输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。"><span class="nav-number">2.3.</span> <span class="nav-text">在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开新建的md文件"><span class="nav-number">2.4.</span> <span class="nav-text">打开新建的md文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#之后就可以编写md"><span class="nav-number">2.5.</span> <span class="nav-text">之后就可以编写md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送到github"><span class="nav-number">2.6.</span> <span class="nav-text">推送到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关的第三方服务"><span class="nav-number">3.</span> <span class="nav-text">相关的第三方服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number">4.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些坑"><span class="nav-number">5.</span> <span class="nav-text">一些坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前存在的问题"><span class="nav-number">6.</span> <span class="nav-text">目前存在的问题</span></a></li></ol></div>
             
 
           </div>
@@ -794,7 +977,7 @@ Uncaught (in promise) DOMException: play() failed because the user didn&apos;t i
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.2k字</span>
+  <span class="post-count">博客全站共2.1k字</span>
 </div>
 
 
