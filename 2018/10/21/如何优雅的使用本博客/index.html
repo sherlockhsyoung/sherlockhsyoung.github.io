@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3ecd39c9f.png">
 <meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3d6752441.png">
 <meta property="og:image" content="https://i.loli.net/2018/10/21/5bcc3e033d2c7.png">
-<meta property="og:updated_time" content="2018-10-21T11:52:23.592Z">
+<meta property="og:updated_time" content="2018-10-24T02:03:17.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何优雅的使用本博客">
 <meta name="twitter:description" content="欢迎各位大佬来到小A前端组的博客，这篇文档主要说明一下本博客的正确使用方法">
@@ -402,7 +402,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2.1k
+                  2.3k
                 </span>
               
 
@@ -528,7 +528,7 @@
 <ul>
 <li>启动服务预览,Hexo会监视文件变动并自动更新，无须重启服务器</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s == hexo server</span><br><span class="line">//debug模式</span><br><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo s == hexo server</span><br><span class="line">//debug模式</span><br><span class="line">hexo server --debug</span><br></pre></td></tr></table></figure>
 <ul>
 <li>部署到服务器</li>
 </ul>
@@ -542,7 +542,7 @@
 <p><a href="https://xuanwo.org/2015/03/26/hexo-intor/#%E5%87%86%E5%A4%87" target="_blank" rel="noopener">史上最详细的Hexo博客搭建图文教程</a></p>
 <hr>
 <h1 id="如何写博文"><a href="#如何写博文" class="headerlink" title="如何写博文"></a>如何写博文</h1><h2 id="在Blog-blogl路径右键打开-选择git-bash"><a href="#在Blog-blogl路径右键打开-选择git-bash" class="headerlink" title="在Blog/blogl路径右键打开,选择git bash"></a>在Blog/blogl路径右键打开,选择git bash</h2><p><img src="https://i.loli.net/2018/10/21/5bcb61a936e5f.png" alt="image"></p>
-<h2 id="在该窗口输入"><a href="#在该窗口输入" class="headerlink" title="在该窗口输入"></a>在该窗口输入</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm n <span class="string">"你的文章标题"</span></span><br></pre></td></tr></table></figure>
+<h2 id="在该窗口输入"><a href="#在该窗口输入" class="headerlink" title="在该窗口输入"></a>在该窗口输入</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo n <span class="string">"你的文章标题"</span></span><br></pre></td></tr></table></figure>
 <h2 id="在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。"><a href="#在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。" class="headerlink" title="在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。"></a>在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</h2><p>注：vscode可以编写md，安装相应插件(Markdown All in One、Markdown Preview Enhanced)即可</p>
 <h2 id="打开新建的md文件"><a href="#打开新建的md文件" class="headerlink" title="打开新建的md文件"></a>打开新建的md文件</h2><p>会看到首部如下，需要做一些改动</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 你的文章title</span><br><span class="line">abstract: 这篇文章已加密</span><br><span class="line">message: 请输入密码</span><br><span class="line">copyright: ture</span><br><span class="line">date: （相应时间）</span><br><span class="line">author: </span><br><span class="line">categories: </span><br><span class="line">tags: </span><br><span class="line">top: </span><br><span class="line">password:</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -615,7 +615,7 @@
 <li>package.json</li>
 <li><p>package-lock.json</p>
 <p>如何执行命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"你的更新信息"</span></span><br><span class="line">git remote add origin git@github.com:sherlockhsyoung/hexoFiles.git</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">//add的时候可能会报错 modifed: xxxx  ,这时需要切换到它所提示的具体文件目录，再</span><br><span class="line">//手动挨个add你修改了的文件，再返回总目录，git status查看,再git add .直到git status没有 new files</span><br><span class="line">//git bash窗口的复制是insert键，粘贴是<span class="built_in">shift</span>+insert键</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">"你的更新信息"</span></span><br><span class="line">git remote add origin git@github.com:sherlockhsyoung/hexoFiles.git</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果不幸遇到错误</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git push origin master</span><br><span class="line">To github.com:sherlockhsyoung/hexoFiles.git</span><br><span class="line">! [rejected]        master -&gt; master (fetch first)</span><br><span class="line">error: failed to push some refs to <span class="string">'git@github.com:sherlockhsyoung/hexoFiles.git'</span></span><br><span class="line">hint: Updates were rejected because the remote contains work that you <span class="keyword">do</span></span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., <span class="string">'git pull ...'</span>) before pushing again.</span><br><span class="line">hint: See the <span class="string">'Note about fast-forwards'</span> <span class="keyword">in</span> <span class="string">'git push --help'</span> <span class="keyword">for</span> details.</span><br></pre></td></tr></table></figure>
@@ -687,17 +687,25 @@
 </li>
 </ul>
 <hr>
-<h1 id="一些坑"><a href="#一些坑" class="headerlink" title="一些坑"></a>一些坑</h1><ul>
+<h1 id="一些坑和提醒"><a href="#一些坑和提醒" class="headerlink" title="一些坑和提醒"></a>一些坑和提醒</h1><ul>
 <li><p>修改本地所有的配置文件时，注意所有的冒号:后边都要加一个空格，否则执行 hexo 命令时会报错</p>
 </li>
 <li><p>hexo根目录千万不能把.git文件夹复制过去，不然提交的就不是public目录了</p>
 </li>
+<li><p>md文件的书写一定要注意空格，特别是代码块的前后都有留有一行，否则会出现排版乱掉，如果发现上传的博文排版乱掉，先看是不是书写没有空格的问题</p>
+</li>
+<li><p>打开相关配置文件修改时，先别关闭编辑器，修改后出问题，才可及时撤销修改</p>
+</li>
+<li><p>搭建个人博客时建议本地多备份一份，以防修改的时候崩了无法补救</p>
+</li>
 </ul>
 <hr>
 <h1 id="目前存在的问题"><a href="#目前存在的问题" class="headerlink" title="目前存在的问题"></a>目前存在的问题</h1><ul>
-<li><p>网易云音乐页面加载后不能自动播放<br>网页console报错</p>
-  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught (<span class="keyword">in</span> promise) DOMException: play() failed because the user didn<span class="string">'t interact with the document first.</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>网易云音乐页面加载后不能自动播放</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Uncaught (<span class="keyword">in</span> promise) DOMException: play() failed because the user didn<span class="string">'t interact with the document first.</span></span><br></pre></td></tr></table></figure>
+<p>网页console报错，发现是chrome的问题，其他浏览器可以自动播放</p>
+<ul>
 <li><p>hexo集成的jiathis分享插件有问题，需要更改</p>
 </li>
 <li><p>关于的页面还没写</p>
@@ -724,7 +732,7 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <p><span>本文作者:</span><a href="#">黄思扬</a></p>
   <p><span>发布时间:</span>2018年10月21日 - 00:10</p>
-  <p><span>最后更新:</span>2018年10月21日 - 19:10</p>
+  <p><span>最后更新:</span>2018年10月24日 - 10:10</p>
   <p><span>原始链接:</span><a href="/2018/10/21/如何优雅的使用本博客/" title="如何优雅的使用本博客">https://sherlockhsyoung.github.io/2018/10/21/如何优雅的使用本博客/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sherlockhsyoung.github.io/2018/10/21/如何优雅的使用本博客/"  aria-label="复制成功！"></i></span>
   </p>
@@ -938,7 +946,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#必要的准备工作"><span class="nav-number">1.</span> <span class="nav-text">必要的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载node-js并安装"><span class="nav-number">1.2.</span> <span class="nav-text">下载node.js并安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.3.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何写博文"><span class="nav-number">2.</span> <span class="nav-text">如何写博文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Blog-blogl路径右键打开-选择git-bash"><span class="nav-number">2.1.</span> <span class="nav-text">在Blog/blogl路径右键打开,选择git bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在该窗口输入"><span class="nav-number">2.2.</span> <span class="nav-text">在该窗口输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。"><span class="nav-number">2.3.</span> <span class="nav-text">在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开新建的md文件"><span class="nav-number">2.4.</span> <span class="nav-text">打开新建的md文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#之后就可以编写md"><span class="nav-number">2.5.</span> <span class="nav-text">之后就可以编写md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送到github"><span class="nav-number">2.6.</span> <span class="nav-text">推送到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关的第三方服务"><span class="nav-number">3.</span> <span class="nav-text">相关的第三方服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number">4.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些坑"><span class="nav-number">5.</span> <span class="nav-text">一些坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前存在的问题"><span class="nav-number">6.</span> <span class="nav-text">目前存在的问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#必要的准备工作"><span class="nav-number">1.</span> <span class="nav-text">必要的准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">1.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载node-js并安装"><span class="nav-number">1.2.</span> <span class="nav-text">下载node.js并安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">1.3.</span> <span class="nav-text">安装Hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#如何写博文"><span class="nav-number">2.</span> <span class="nav-text">如何写博文</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#在Blog-blogl路径右键打开-选择git-bash"><span class="nav-number">2.1.</span> <span class="nav-text">在Blog/blogl路径右键打开,选择git bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在该窗口输入"><span class="nav-number">2.2.</span> <span class="nav-text">在该窗口输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在-Blog-blog-source-posts路径找到你所新建的md文件，用支持md的编辑器打开。"><span class="nav-number">2.3.</span> <span class="nav-text">在 Blog\blog\source\_posts路径找到你所新建的md文件，用支持md的编辑器打开。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开新建的md文件"><span class="nav-number">2.4.</span> <span class="nav-text">打开新建的md文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#之后就可以编写md"><span class="nav-number">2.5.</span> <span class="nav-text">之后就可以编写md</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推送到github"><span class="nav-number">2.6.</span> <span class="nav-text">推送到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相关的第三方服务"><span class="nav-number">3.</span> <span class="nav-text">相关的第三方服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题美化"><span class="nav-number">4.</span> <span class="nav-text">主题美化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一些坑和提醒"><span class="nav-number">5.</span> <span class="nav-text">一些坑和提醒</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#目前存在的问题"><span class="nav-number">6.</span> <span class="nav-text">目前存在的问题</span></a></li></ol></div>
             
 
           </div>
@@ -971,7 +979,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共2.1k字</span>
+  <span class="post-count">博客全站共2.3k字</span>
 </div>
 
 
