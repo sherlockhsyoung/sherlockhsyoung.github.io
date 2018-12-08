@@ -90,7 +90,7 @@
 <meta property="og:description" content="前言   考试月了，得好好学习下数据结构，本文主要总结了二叉树的四种遍历方法以及所对应的递归与非递归实现方式">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/12/07/5c0952c618ebb.png">
-<meta property="og:updated_time" content="2018-12-08T09:35:48.615Z">
+<meta property="og:updated_time" content="2018-12-08T09:40:45.639Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二叉树学习笔记（一）之遍历二叉树">
 <meta name="twitter:description" content="前言   考试月了，得好好学习下数据结构，本文主要总结了二叉树的四种遍历方法以及所对应的递归与非递归实现方式">
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4.1k
+                  4.2k
                 </span>
               
 
@@ -522,7 +522,7 @@
 <h2 id="遍历的应用"><a href="#遍历的应用" class="headerlink" title="遍历的应用"></a>遍历的应用</h2><h3 id="求二叉树深度"><a href="#求二叉树深度" class="headerlink" title="求二叉树深度"></a>求二叉树深度</h3><p>利用后序遍历框架递归求左、右子树深度，然后取两者的较大值加 1（根节点）作为深度值返回。代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BiTreeDepth</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> depthLeft,depthRight;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">NULL</span>==T) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//二叉树深度为0</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        depthLeft = BiTreeDepth(T-&gt;lchild);</span><br><span class="line">        depthRight = BiTreeDepth(T-&gt;rchild);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+((depthLeft&gt;depthRight)?depthLeft:depthRight);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="叶子节点计数"><a href="#叶子节点计数" class="headerlink" title="叶子节点计数"></a>叶子节点计数</h3><p>利用先序遍历框架递归实现，算法如下：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CountLeaf</span><span class="params">(BiTree T, <span class="keyword">int</span> &amp;count)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="literal">NULL</span> == T-&gt;lchild &amp;&amp; <span class="literal">NULL</span> == T-&gt;rchild)&#123;</span><br><span class="line">            count++;  <span class="comment">// 对叶子结点计数</span></span><br><span class="line">        &#125;</span><br><span class="line">        CountLeaf(T-&gt;lchild, count); <span class="comment">// 对左子树递归计数</span></span><br><span class="line">        CountLeaf(T-&gt;rchild, count); <span class="comment">// 对右子树递归计数</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="销毁二叉树"><a href="#销毁二叉树" class="headerlink" title="销毁二叉树"></a>销毁二叉树</h3><p>代码如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DestroyBiTree</span><span class="params">(BiTree &amp;T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        DestroyBiTree(T-&gt;lchild);<span class="comment">// 递归销毁左子树</span></span><br><span class="line">        DestroyBiTree(T-&gt;rchild);<span class="comment">// 递归销毁右子树</span></span><br><span class="line">        <span class="built_in">free</span>(T);				 <span class="comment">// 释放根节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="删除指定元素结点的子树"><a href="#删除指定元素结点的子树" class="headerlink" title="删除指定元素结点的子树"></a>删除指定元素结点的子树</h3><p>代码如下：</p>
