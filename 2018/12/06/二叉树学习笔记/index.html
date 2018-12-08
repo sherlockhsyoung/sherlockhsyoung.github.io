@@ -1,0 +1,1506 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-spiderman.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-spiderman.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/sherlock.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="二叉树," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言   考试月了，得好好学习下数据结构">
+<meta name="keywords" content="二叉树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树学习笔记之遍历二叉树">
+<meta property="og:url" content="https://sherlock-y.com/2018/12/06/二叉树学习笔记/index.html">
+<meta property="og:site_name" content="SherlockYang&#39;s Blog">
+<meta property="og:description" content="前言   考试月了，得好好学习下数据结构">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/12/07/5c0952c618ebb.png">
+<meta property="og:updated_time" content="2018-12-08T06:03:43.863Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树学习笔记之遍历二叉树">
+<meta name="twitter:description" content="前言   考试月了，得好好学习下数据结构">
+<meta name="twitter:image" content="https://i.loli.net/2018/12/07/5c0952c618ebb.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sherlock-y.com/2018/12/06/二叉树学习笔记/"/>
+
+
+
+
+
+  <title>二叉树学习笔记之遍历二叉树 | SherlockYang's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <a href="https://github.com/sherlockhsyoung"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">SherlockYang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">前端深似海</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sherlock-y.com/2018/12/06/二叉树学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SherlockYang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://i.loli.net/2018/10/20/5bcb16a6ca9a1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="SherlockYang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">二叉树学习笔记之遍历二叉树</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-06T23:17:40+08:00">
+                2018-12-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/06/二叉树学习笔记/" class="leancloud_visitors" data-flag-title="二叉树学习笔记之遍历二叉树">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+				 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  4.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  17
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>前言 </p>
+</blockquote>
+<p>考试月了，得好好学习下数据结构</p>
+<a id="more"></a>
+<h1 id="二叉树基础知识"><a href="#二叉树基础知识" class="headerlink" title="二叉树基础知识"></a>二叉树基础知识</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
+<li>二叉树定义：含有n（n&gt;=0）个节点的有限集合</li>
+<li>非空二叉树中：<ul>
+<li>有且仅有一个根节点</li>
+<li>其余节点划分为两个互不相交的子集L和R，L称为左子树，R称为右子树</li>
+</ul>
+</li>
+<li>任一结点的左、右子树的根称为该结点的左、右孩子，反过来，该结点称为孩子的双亲</li>
+<li>度：结点的孩子个数</li>
+<li>叶子结点：度为0 的结点</li>
+<li>非叶子结点：度大于0，也称为内部结点或分支结点</li>
+<li>二叉树的深度（或高度）：结点的最大层次称为二叉树的深度（或高度）。（所谓层次，根节点即为第一层，以此类推）</li>
+</ul>
+<h2 id="二叉树的性质"><a href="#二叉树的性质" class="headerlink" title="二叉树的性质"></a>二叉树的性质</h2><ol>
+<li>在非空二叉树的第 i 层上最多右 2^(i-1) 个结点（i&gt;=1）</li>
+<li>深度为 k 的二叉树最多有 2^k - 1 个结点（k&gt;=1）</li>
+<li>对于任意一颗二叉树，如果度为 0 的结点个数为 n0 ,度为 2 的结点个数为   n2，则 n0 = n2+1</li>
+<li>具有 n 个结点的完全二叉树的深度 k = [log2n] + 1</li>
+<li>对于含 n 个结点的完全二叉树中编号为 i (1&lt;=i&lt;=n) 的结点<ol>
+<li>如果 i = 1，则 i 结点是这颗完全二叉树的根，没有双亲；否则其双亲的编号为 [i/2]</li>
+<li>如果 2i&gt;n，则 i 结点没有左孩子；否则其左孩子的编号为 2i</li>
+<li>如果 2i+1&gt;n，则 i 结点没有右孩子；否则其右孩子的编号为 2i+1</li>
+</ol>
+</li>
+</ol>
+<h2 id="满二叉树与完全二叉树"><a href="#满二叉树与完全二叉树" class="headerlink" title="满二叉树与完全二叉树"></a>满二叉树与完全二叉树</h2><ul>
+<li><p><strong>满二叉树</strong>：深度为 k 且有 2^k - 1 个结点的二叉树</p>
+</li>
+<li><p><strong>完全二叉树</strong>：完全二叉树是效率很高的数据结构，完全二叉树是由<a href="https://baike.baidu.com/item/%E6%BB%A1%E4%BA%8C%E5%8F%89%E6%A0%91" target="_blank" rel="noopener">满二叉树</a>而引出来的。深度为K且含 n 个结点的二叉树，如果其每一个结点都与深度为K的满二叉树中编号从1至n的结点一一对应，则称之为完全二叉树。换句话讲，在一棵二叉树中，除最后一层外，若其余层都是满的，并且最后一层或者是满的，或者是在右边缺少连续若干节点，则此二叉树为完全二叉树。</p>
+<p><img src="https://i.loli.net/2018/12/07/5c0952c618ebb.png" alt=""></p>
+</li>
+</ul>
+<h1 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h1><h3 id="顺序存储"><a href="#顺序存储" class="headerlink" title="顺序存储"></a>顺序存储</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一维数组实现</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> TElemType;	  <span class="comment">// 假设结点元素类型为字符</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> &#123;</span></span><br><span class="line">TElemType * elem;	      <span class="comment">// 0号单元闲置</span></span><br><span class="line"><span class="keyword">int</span> lastIndex;		      <span class="comment">// 二叉树最后一个结点的编号</span></span><br><span class="line">&#125; SqBiTree;</span><br></pre></td></tr></table></figure>
+<h3 id="链式存储"><a href="#链式存储" class="headerlink" title="链式存储"></a>链式存储</h3><ul>
+<li>二叉链表</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span>&#123;</span></span><br><span class="line">    TElemType data;	  				<span class="comment">// 数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">BiTNode</span> *<span class="title">lchild</span>,*<span class="title">rchild</span>;</span>	<span class="comment">// 左、右孩子指针域</span></span><br><span class="line">&#125; BiTNode,*BiTNode;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>三叉链表</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TriTNode</span>&#123;</span></span><br><span class="line">    TElemType data;	  						<span class="comment">// 数据域</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">TriTNode</span> *<span class="title">parent</span>,*<span class="title">lchild</span>,*<span class="title">rchild</span>;</span><span class="comment">// 双亲左、右孩子指针域</span></span><br><span class="line">&#125; TriTNode,*TriTNode;</span><br></pre></td></tr></table></figure>
+<h1 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h1><h2 id="首先来认识一下遍历"><a href="#首先来认识一下遍历" class="headerlink" title="首先来认识一下遍历"></a>首先来认识一下遍历</h2><p><strong>遍历</strong>：树的遍历（也称为树的搜索）是图的遍历的一种，指的是按照某种规则，不重复地访问某种树的所有结点，使得每个结点被且仅被访问的过程。具体的访问操作可能是检查节点的值、更新节点的值等。二叉树的遍历也适用于其它树的遍历。</p>
+<p>遍历是二叉树的一类重要操作，也是二叉树的其他一些操作和各种应用算法的基本框架。</p>
+<p>遍历有两种类别，一种是深度优先遍历，另一种是广度优先遍历</p>
+<ul>
+<li><p>深度优先遍历：先访问子节点，再访问父节点，最后是第二个子节点</p>
+<ul>
+<li>先序遍历：VLR，即根结点-&gt;左结点-&gt;右节点</li>
+<li>中序遍历：LVR，即左结点-&gt;根结点-&gt;右节点</li>
+<li>后序遍历：LRV，即左结点-&gt;右结点-&gt;根节点</li>
+</ul>
+</li>
+<li><p>广度优先遍历：先访问第一个子节点，再访问第二个子节点，最后访问父节点，二叉树的广度优先遍历就是层次遍历</p>
+</li>
+</ul>
+<p>由于从给定的某个节点出发，有多个可以前往的下一个节点（树不是线性数据结构），所以在顺序计算（即非并行计算）的情况下，只能推迟对某些节点的访问——即以某种方式保存起来以便稍后再访问。常见的做法是采用栈（LIFO）或队列（FIFO）。由于树本身是一种自我引用（即递归定义）的数据结构，因此很自然也可以用递归方式。</p>
+<p>所以，下面我重点总结了这两种不同的遍历实现方式。</p>
+<p>注：本文所讲的数据结构均为C语言版</p>
+<h2 id="先序遍历"><a href="#先序遍历" class="headerlink" title="先序遍历"></a>先序遍历</h2><h3 id="递归遍历"><a href="#递归遍历" class="headerlink" title="递归遍历"></a>递归遍历</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">PreOrderTraverse</span><span class="params">(BiTree T,Status(*visit)(TElemType e))</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="literal">NULL</span> == T) <span class="keyword">return</span> OK;</span><br><span class="line">   <span class="keyword">if</span>(ERROR == visit(T-&gt;data))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//访问结点的数据域</span></span><br><span class="line">   <span class="keyword">if</span>(ERROR == InOrderTraverse(T-&gt;lchild,visit))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//递归遍历T的左子树</span></span><br><span class="line">   <span class="keyword">return</span> InOrderTraverse(T-&gt;rchild,visit);<span class="comment">//递归遍历T的右子树</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="非递归遍历"><a href="#非递归遍历" class="headerlink" title="非递归遍历"></a>非递归遍历</h3><p><strong>1.使用栈的非递归先序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">二叉链表类型定义：</span></span><br><span class="line"><span class="comment">typedef struct BiTNode &#123;</span></span><br><span class="line"><span class="comment">  TElemType  data;</span></span><br><span class="line"><span class="comment">  struct BiTNode  *lchild,*rchild;</span></span><br><span class="line"><span class="comment">&#125; BiTNode, *BiTree;</span></span><br><span class="line"><span class="comment">栈类型Stack的相关定义：</span></span><br><span class="line"><span class="comment">typedef BiTree SElemType;   	      // 栈的元素类型</span></span><br><span class="line"><span class="comment">Status InitStack(Stack &amp;S); 	      // 初始化栈</span></span><br><span class="line"><span class="comment">Status StackEmpty(Stack S); 	      // 判栈空</span></span><br><span class="line"><span class="comment">Status Push(Stack &amp;S, SElemType e);	  // 进栈</span></span><br><span class="line"><span class="comment">Status Pop(Stack &amp;S, SElemType &amp;e);   // 出栈 </span></span><br><span class="line"><span class="comment">Status GetTop(Stack S, SElemType &amp;e); // 取栈顶元素</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrder</span><span class="params">(BiTree T, <span class="keyword">void</span> (*visit)(TElemType))</span></span></span><br><span class="line"><span class="function"><span class="comment">/*对每个结点的元素域data调用函数visit进行访问 */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   Stack S;   InitStack(S);</span><br><span class="line">   BiTree p = T;</span><br><span class="line">   <span class="comment">// 先序访问根节点，遍历左节点 ，左节点入栈</span></span><br><span class="line">   <span class="comment">// StackEmpty(Stack S);S为空返回true反之false;</span></span><br><span class="line">   <span class="comment">// 当栈不空或 p非空时</span></span><br><span class="line">   <span class="keyword">while</span>(!StackEmpty(S) || p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">     <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        visit(p-&gt;data);</span><br><span class="line">        Push(S,p);</span><br><span class="line">        p = p-&gt;lchild;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">if</span>(!StackEmpty(S))&#123;</span><br><span class="line">        Pop(S,p); <span class="comment">// 执行完 p指向S出栈的元素</span></span><br><span class="line">        p = p-&gt;rchild;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.不使用栈，使用三叉链表的非递归先序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********  </span></span><br><span class="line"><span class="comment">三叉链表类型定义：  </span></span><br><span class="line"><span class="comment">typedef struct TriTNode &#123;  </span></span><br><span class="line"><span class="comment">	TElemType data;  </span></span><br><span class="line"><span class="comment">	struct TriTNode *parent, *lchild, *rchild;  </span></span><br><span class="line"><span class="comment">&#125; TriTNode, *TriTree;  </span></span><br><span class="line"><span class="comment">**********/</span>  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrder</span><span class="params">(BiTree T, <span class="keyword">void</span> (*visit)(TElemType))</span></span>&#123;</span><br><span class="line">    TriTree p, pr;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        p = T;</span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            visit(p-&gt;data);<span class="comment">//输出当前的结点</span></span><br><span class="line">            <span class="keyword">if</span>(p-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">                p = p-&gt;lchild;<span class="comment">//若有左孩子，继续访问</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">                p = p-&gt;rchild;<span class="comment">//若有右孩子，继续访问</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">              <span class="comment">//沿双亲指针链查找，找到第一个由右孩子的p结点</span></span><br><span class="line">              <span class="comment">//找不到则结束</span></span><br><span class="line">                <span class="keyword">do</span>&#123;</span><br><span class="line">                    pr = p;</span><br><span class="line">                    p = p-&gt;parent;</span><br><span class="line">                &#125;<span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;(p-&gt;rchild==pr||<span class="literal">NULL</span>==p-&gt;rchild)) <span class="comment">//p有右孩子但不是pr，结束循环</span></span><br><span class="line">            	<span class="keyword">if</span>(p) p = p-&gt;rchild;<span class="comment">//找到后，p指向右孩子结点</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h2><h3 id="递归遍历-1"><a href="#递归遍历-1" class="headerlink" title="递归遍历"></a>递归遍历</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">InOrderTraverse</span><span class="params">(BiTree T,Status(*visit)(TElemType e))</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="literal">NULL</span> == T) <span class="keyword">return</span> OK;</span><br><span class="line">   <span class="keyword">if</span>(ERROR == InOrderTraverse(T-&gt;lchild,visit))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//递归遍历T的左子树</span></span><br><span class="line">   <span class="keyword">if</span>(ERROR == visit(T-&gt;data))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//访问结点的数据域</span></span><br><span class="line">   <span class="keyword">return</span> InOrderTraverse(T-&gt;rchild,visit));<span class="comment">//递归遍历T的右子树</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="非递归遍历-1"><a href="#非递归遍历-1" class="headerlink" title="非递归遍历"></a>非递归遍历</h3><p><strong>1.使用栈的非递归中序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">二叉链表类型定义：</span></span><br><span class="line"><span class="comment">typedef struct BiTNode &#123;</span></span><br><span class="line"><span class="comment">  TElemType  data;</span></span><br><span class="line"><span class="comment">  struct BiTNode  *lchild,*rchild;</span></span><br><span class="line"><span class="comment">&#125; BiTNode, *BiTree;</span></span><br><span class="line"><span class="comment">栈类型Stack的相关定义：</span></span><br><span class="line"><span class="comment">typedef BiTree SElemType;   	      // 栈的元素类型</span></span><br><span class="line"><span class="comment">Status InitStack(Stack &amp;S); 	      // 初始化栈</span></span><br><span class="line"><span class="comment">Status StackEmpty(Stack S); 	      // 判栈空</span></span><br><span class="line"><span class="comment">Status Push(Stack &amp;S, SElemType e);	  // 进栈</span></span><br><span class="line"><span class="comment">Status Pop(Stack &amp;S, SElemType &amp;e);   // 出栈 </span></span><br><span class="line"><span class="comment">Status GetTop(Stack S, SElemType &amp;e); // 取栈顶元素</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="function">BiTNode *<span class="title">GoFarLeft</span><span class="params">(BiTree T,Stack &amp;S)</span></span>&#123;</span><br><span class="line">    <span class="comment">//从T结点出发，沿左分支走到底，沿途结点的指针入栈S，返回左上结点的指针</span></span><br><span class="line">    <span class="keyword">if</span>(!T) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">while</span>(T-&gt;lchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        Push(S,T);</span><br><span class="line">        T = T-&gt;lchild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125; </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraverse</span><span class="params">(BiTree T,<span class="keyword">void</span>(*visit)(TElemType e))</span></span>&#123;</span><br><span class="line">    Stack S;   InitStack(S);</span><br><span class="line">    BiTree p；</span><br><span class="line">    p = GoFarLeft(T, S);<span class="comment">//找到最左下的结点，并将沿途结点的指针入栈S</span></span><br><span class="line">    <span class="keyword">while</span>(p!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        visit(p-&gt;data);<span class="comment">//访问结点</span></span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">            <span class="comment">//令p指向其右孩子为根的子树的最左下结点</span></span><br><span class="line">            p = GoFarLeft(p-&gt;rchild, S);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(!StackEmpty(S))&#123;</span><br><span class="line">            <span class="comment">//栈不空时退栈</span></span><br><span class="line">            Pop(S,p);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> p = <span class="literal">NULL</span>;<span class="comment">//栈空表明遍历结束</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.不使用栈，使用三叉链表的非递归中序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********  </span></span><br><span class="line"><span class="comment">三叉链表类型定义：  </span></span><br><span class="line"><span class="comment">typedef struct TriTNode &#123;  </span></span><br><span class="line"><span class="comment">	TElemType data;  </span></span><br><span class="line"><span class="comment">	struct TriTNode *parent, *lchild, *rchild;  </span></span><br><span class="line"><span class="comment">&#125; TriTNode, *TriTree;  </span></span><br><span class="line"><span class="comment">**********/</span>  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrder</span><span class="params">(TriTree PT, <span class="keyword">void</span> (*visit)(TElemType))</span></span>&#123;</span><br><span class="line">	TriTree p=PT, pr;  </span><br><span class="line">	<span class="keyword">while</span>(<span class="literal">NULL</span> != p) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p-&gt;lchild != <span class="literal">NULL</span>) &#123;  </span><br><span class="line">            p = p-&gt;lchild;   <span class="comment">//寻找最左下结点</span></span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span> &#123;  </span><br><span class="line">            visit(p-&gt;data);</span><br><span class="line">            <span class="comment">//当前节点左子树为空，但右子树不一定为空，</span></span><br><span class="line">            <span class="comment">//所以该节点可能是这个子树的根节点，要先访问，</span></span><br><span class="line">            <span class="comment">//如果有右节点，才能在右节点之前访问</span></span><br><span class="line">            <span class="keyword">if</span> (p-&gt;rchild != <span class="literal">NULL</span>) &#123;  </span><br><span class="line">                <span class="comment">//若有右子树，转到该子树，继续寻找最左下结点</span></span><br><span class="line">                p =p-&gt;rchild;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; </span><br><span class="line">                <span class="comment">//执行到这里</span></span><br><span class="line">                <span class="comment">//p 要不是最左下节点，要不是没有孩子的右节点</span></span><br><span class="line">                <span class="comment">//其实也就是叶子节点</span></span><br><span class="line">                pr = p;    <span class="comment">//否则返回其父亲</span></span><br><span class="line">                p = p-&gt;parent;  </span><br><span class="line">                <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; (p-&gt;lchild != pr || <span class="literal">NULL</span> == p-&gt;rchild))<span class="comment">//若其不是从左子树回溯来的，或左结点的父亲并没有右孩子 </span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span> (p-&gt;lchild == pr) &#123;<span class="comment">//若最左结点的父亲并没有右孩子         </span></span><br><span class="line">                    	visit(p-&gt;data);<span class="comment">//直接访问父亲</span></span><br><span class="line">                    &#125;</span><br><span class="line">                    pr = p;  <span class="comment">//父亲已被访问，故返回上一级</span></span><br><span class="line">                    p = p-&gt;parent;  </span><br><span class="line">                <span class="comment">//该while循环沿双亲链一直查找，若无右孩子则访问</span></span><br><span class="line">                <span class="comment">//直至找到第一个有右孩子的结点为止</span></span><br><span class="line">                <span class="comment">//（但不访问该结点，留给下步if语句访问</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (<span class="literal">NULL</span> != p) &#123;</span><br><span class="line">                 <span class="comment">//访问父亲，并转到右孩子</span></span><br><span class="line">                 <span class="comment">//（经上步while处理，可以确定此时p有右孩子）</span></span><br><span class="line">                    visit(p-&gt;data);</span><br><span class="line">                    p = p-&gt;rchild;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h2><h3 id="递归遍历-2"><a href="#递归遍历-2" class="headerlink" title="递归遍历"></a>递归遍历</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Status <span class="title">PostOrderTraverse</span><span class="params">(BiTree T,Status(*visit)(TElemType e))</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(<span class="literal">NULL</span> == T) <span class="keyword">return</span> OK;</span><br><span class="line">   <span class="keyword">if</span>(ERROR == InOrderTraverse(T-&gt;lchild,visit))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//递归遍历T的左子树</span></span><br><span class="line">   <span class="keyword">if</span>(ERROR == InOrderTraverse(T-&gt;rchild,visit))</span><br><span class="line">       <span class="keyword">return</span> ERROR; <span class="comment">//递归遍历T的右子树</span></span><br><span class="line">   <span class="keyword">return</span> visit(T-&gt;data);<span class="comment">//访问结点的数据域</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="非递归遍历-2"><a href="#非递归遍历-2" class="headerlink" title="非递归遍历"></a>非递归遍历</h3><p><strong>1.使用栈的非递归后序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">二叉链表类型定义：</span></span><br><span class="line"><span class="comment">typedef struct BiTNode &#123;</span></span><br><span class="line"><span class="comment">  TElemType  data;</span></span><br><span class="line"><span class="comment">  struct BiTNode  *lchild,*rchild;</span></span><br><span class="line"><span class="comment">&#125; BiTNode, *BiTree;</span></span><br><span class="line"><span class="comment">为分辨后序遍历时两次进栈的不同返回点，需在指针进栈时同时将一个标志进栈</span></span><br><span class="line"><span class="comment">typedef struct &#123;</span></span><br><span class="line"><span class="comment">  struct BiTNode *ptr; // 二叉树结点的指针类型</span></span><br><span class="line"><span class="comment">  int  tag; 		   // 标志 值为 0 或 1</span></span><br><span class="line"><span class="comment">&#125; SElemType;    	   // 栈的元素类型</span></span><br><span class="line"><span class="comment">栈类型Stack的相关定义：</span></span><br><span class="line"><span class="comment">typedef BiTree SElemType;   	      // 栈的元素类型</span></span><br><span class="line"><span class="comment">Status InitStack(Stack &amp;S); 	      // 初始化栈</span></span><br><span class="line"><span class="comment">Status StackEmpty(Stack S); 	      // 判栈空</span></span><br><span class="line"><span class="comment">Status Push(Stack &amp;S, SElemType e);	  // 进栈</span></span><br><span class="line"><span class="comment">Status Pop(Stack &amp;S, SElemType &amp;e);   // 出栈 </span></span><br><span class="line"><span class="comment">Status GetTop(Stack S, SElemType &amp;e); // 取栈顶元素</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrder</span><span class="params">(BiTree T, <span class="keyword">void</span> (*visit)(TElemType))</span></span></span><br><span class="line"><span class="function"><span class="comment">/* 使用栈，非递归后序遍历二叉树T，     */</span></span></span><br><span class="line"><span class="function"><span class="comment">/* 对每个结点的元素域data调用函数visit */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     Stack S; InitStack(S); SElemType e; BiTree p=T;   </span><br><span class="line">     <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        e.tag=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(!StackEmpty(S)||p==T)&#123;</span><br><span class="line">            <span class="comment">// 这个while循环的目的是先遍历每个子树的左节点到底，并将沿途的左节点入栈</span></span><br><span class="line">            <span class="comment">// 此时的栈顶元素也就是要访问的起始节点，而 p可能指向栈顶的这个节点也可能指向NULL</span></span><br><span class="line">            <span class="keyword">while</span>(p)&#123;  <span class="comment">// tag == 1,表示新进栈的</span></span><br><span class="line">                </span><br><span class="line">                e.ptr=p;</span><br><span class="line">                <span class="keyword">if</span>(p-&gt;lchild)&#123;<span class="comment">// 如果存在左子树</span></span><br><span class="line">                    p=p-&gt;lchild;</span><br><span class="line">                    e.tag=<span class="number">0</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123; <span class="comment">// 否则，有右子树的话，让p指向右子树，没有右子树，p-&gt;NULL,结束本次循环</span></span><br><span class="line">                    p=p-&gt;rchild;</span><br><span class="line">                    e.tag=<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                Push(S,e); <span class="comment">// 入栈</span></span><br><span class="line">            &#125;<span class="comment">// 小while结束</span></span><br><span class="line">            GetTop(S,e); <span class="comment">// 取出栈顶元素，并返回给e,这里是让e指向栈顶元素，方便下面的tag值判断</span></span><br><span class="line">            <span class="keyword">if</span>(!StackEmpty(S)&amp;&amp;e.tag)&#123;  <span class="comment">// tag==1，e为到底的左子树或右子树 ,也是栈顶元素</span></span><br><span class="line">                </span><br><span class="line">                Pop(S,e);<span class="comment">// 叶子结点出栈</span></span><br><span class="line">                p=e.ptr;</span><br><span class="line">                visit(p-&gt;data);<span class="comment">// 访问该结点</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!StackEmpty(S))&#123;</span><br><span class="line">                Pop(S,e);<span class="comment">//继续出栈，得到上一层结点</span></span><br><span class="line">                p=e.ptr;</span><br><span class="line">                <span class="keyword">if</span>(e.tag)&#123;<span class="comment">// tag == 1 ,表示上一层结点为上上一层节点的右子树，且该右子树已经入栈</span></span><br><span class="line">                    visit(p-&gt;data);</span><br><span class="line">                    p=<span class="literal">NULL</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;<span class="comment">//表示上一层结点为上上一层节点的左子树，且上一层节点的右子树没入过栈</span></span><br><span class="line">                    <span class="keyword">if</span>(p-&gt;rchild)&#123;  <span class="comment">// 如果存在右子树，使上一层结点返回入栈，并同时设tag == 1</span></span><br><span class="line">                        p=p-&gt;rchild;  <span class="comment">// 使 p指向右子树</span></span><br><span class="line">                        e.tag=<span class="number">1</span>;</span><br><span class="line">                        Push(S,e); </span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;<span class="comment">//没有右子树 ，直接访问该节点</span></span><br><span class="line">                        visit(p-&gt;data);</span><br><span class="line">                        p=<span class="literal">NULL</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;<span class="comment">//栈空则，p为NULL</span></span><br><span class="line">                p=<span class="literal">NULL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="comment">//大while结束</span></span><br><span class="line">     &#125;<span class="comment">//大if结束</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.不使用栈，使用三叉链表的非递归后序遍历算法</strong></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********  </span></span><br><span class="line"><span class="comment">在三叉链表的结点中增设一个标志域  (mark取值0,1或2)以区分遍历过程中到达该结点时应继续向左或向右或访问该结点</span></span><br><span class="line"><span class="comment">带标志域的三叉链表类型定义：  </span></span><br><span class="line"><span class="comment">typedef struct TriTNode &#123;  </span></span><br><span class="line"><span class="comment">	TElemType data;  </span></span><br><span class="line"><span class="comment">	struct TriTNode *lchild, *rchild, *parent;  </span></span><br><span class="line"><span class="comment">	int mark; // 标志域  </span></span><br><span class="line"><span class="comment">&#125; TriTNode, *TriTree;  </span></span><br><span class="line"><span class="comment">**********/</span>  </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrder</span><span class="params">(TriTree T, <span class="keyword">void</span> (*visit)(TElemType))</span>  </span></span><br><span class="line"><span class="function"><span class="comment">/* 不使用栈，非递归后序遍历二叉树T， */</span>  </span></span><br><span class="line"><span class="function"><span class="comment">/* 对每个结点的元素域data调用函数visit */</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  <span class="comment">//mark ==  0 向左访问，1 访问自身，2 向右访问  </span></span><br><span class="line">    TriTree p= T, pr;  </span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>) <span class="keyword">return</span> ; </span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;  </span><br><span class="line">        <span class="keyword">while</span>(p!=<span class="literal">NULL</span>&amp;&amp;p-&gt;mark!=<span class="number">1</span>)&#123;  </span><br><span class="line">            <span class="keyword">if</span>(p-&gt;rchild!=<span class="literal">NULL</span>) <span class="comment">//若有右孩子  </span></span><br><span class="line">                p-&gt;mark=<span class="number">2</span>;  </span><br><span class="line">            <span class="keyword">else</span> p-&gt;mark=<span class="number">1</span>;  </span><br><span class="line">            pr=p; </span><br><span class="line">            p=p-&gt;lchild;  </span><br><span class="line">        &#125;  </span><br><span class="line">        p=pr; <span class="comment">// p为最左下节点，可能有右孩子</span></span><br><span class="line">        pr=pr-&gt;parent;  </span><br><span class="line">        <span class="keyword">if</span>(p-&gt;mark==<span class="number">2</span>)  &#123; <span class="comment">// p有右孩子</span></span><br><span class="line">            p-&gt;mark=<span class="number">1</span>; <span class="comment">// p访问完右边后下次要访问自己 </span></span><br><span class="line">            p=p-&gt;rchild;</span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>&#123;  </span><br><span class="line">            visit(p-&gt;data); <span class="comment">// 访问</span></span><br><span class="line">            p-&gt;mark=<span class="number">1</span>;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">if</span>(p-&gt;data==T-&gt;data)  <span class="keyword">break</span>;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="层次遍历"><a href="#层次遍历" class="headerlink" title="层次遍历"></a>层次遍历</h2><p>层次遍历是按二叉树的层次从小到大且每层从左到右的顺序依次访问结点</p>
+<p>对于顺序存储结构的二叉树，其结点在数组中的顺序下标序列与层次遍历的访问顺序一致，因此可直接根据数组得到层次遍历的结果。</p>
+<p>对于链式存储结构的二叉树，难以获得结点的同一层的下一层结点，从层末结点也难以得到下一层的层首结点。所以可使用一个辅助队列存储当前层被访问过的结点。</p>
+<h3 id="使用队列的非递归遍历"><a href="#使用队列的非递归遍历" class="headerlink" title="使用队列的非递归遍历"></a>使用队列的非递归遍历</h3><p>算法如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**********</span></span><br><span class="line"><span class="comment">二叉链表类型定义：</span></span><br><span class="line"><span class="comment">typedef struct BiTNode &#123;</span></span><br><span class="line"><span class="comment">  TElemType  data;</span></span><br><span class="line"><span class="comment">  struct BiTNode  *lchild,*rchild;</span></span><br><span class="line"><span class="comment">&#125; BiTNode, *BiTree;</span></span><br><span class="line"><span class="comment">**********/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LevelOrderTraverse</span><span class="params">(BiTree T,Status(*visit)(TEleType e))</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        Queue Q; 	InitQueue(Q);</span><br><span class="line">        BiTree p = T; <span class="comment">//初始化</span></span><br><span class="line">        visit(p-&gt;data); <span class="comment">//访问根节点</span></span><br><span class="line">        EnQueue(Q,p); <span class="comment">//并将根节点入队</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(OK==DeQueue(Q,p))<span class="comment">//当队非空时重复执行出队操作</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;lchild!=<span class="literal">NULL</span>)<span class="comment">//访问左孩子并入队</span></span><br><span class="line">        &#123;</span><br><span class="line">        	visit(p-&gt;lchild-&gt;data);</span><br><span class="line">            EnQueue(Q,p-&gt;lchild);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;rchild!=<span class="literal">NULL</span>)<span class="comment">//访问右孩子并入队</span></span><br><span class="line">        &#123;</span><br><span class="line">            visit(p-&gt;rchild-&gt;data);</span><br><span class="line">            EnQueue(Q,p-&gt;rchild);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历的应用"><a href="#遍历的应用" class="headerlink" title="遍历的应用"></a>遍历的应用</h2><h3 id="求二叉树深度"><a href="#求二叉树深度" class="headerlink" title="求二叉树深度"></a>求二叉树深度</h3><p>利用后序遍历框架递归求左、右子树深度，然后取两者的较大值加 1（根节点）作为深度值返回。代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BiTreeDepth</span><span class="params">(BiTree T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> depthLeft,depthRight;</span><br><span class="line">    <span class="keyword">if</span>(<span class="literal">NULL</span>==T) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">//二叉树深度为0</span></span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        depthLeft = BiTreeDepth(T-&gt;lchild);</span><br><span class="line">        depthRight = BiTreeDepth(T-&gt;rchild);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>+((depthLeft&gt;depthRight)?depthLeft:depthRight);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="销毁二叉树"><a href="#销毁二叉树" class="headerlink" title="销毁二叉树"></a>销毁二叉树</h3><p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DestroyBiTree</span><span class="params">(BiTree &amp;T)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(T!=<span class="literal">NULL</span>)&#123;</span><br><span class="line">        DestroyBiTree(T-&gt;lchild);<span class="comment">// 递归销毁左子树</span></span><br><span class="line">        DestroyBiTree(T-&gt;rchild);<span class="comment">// 递归销毁右子树</span></span><br><span class="line">        <span class="built_in">free</span>(T);				 <span class="comment">// 释放根节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="删除指定元素结点的子树"><a href="#删除指定元素结点的子树" class="headerlink" title="删除指定元素结点的子树"></a>删除指定元素结点的子树</h3><p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ReleaseX</span><span class="params">(BiTree &amp;T, <span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"><span class="comment">/* 对于二叉树T中每一个元素值为x的结点， */</span></span></span><br><span class="line"><span class="function"><span class="comment">/* 删去以它为根的子树，并释放相应的空间 */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!T) <span class="keyword">return</span> ;</span><br><span class="line">    ReleaseX(T-&gt;lchild,x);</span><br><span class="line">    ReleaseX(T-&gt;rchild,x);</span><br><span class="line">    <span class="keyword">if</span>(T-&gt;data == x) <span class="built_in">free</span>(T);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="复制二叉树"><a href="#复制二叉树" class="headerlink" title="复制二叉树"></a>复制二叉树</h3><p>代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CopyBiTree</span><span class="params">(BiTree T, BiTree &amp;TT)</span></span></span><br><span class="line"><span class="function"><span class="comment">/* 递归复制二叉树T得到TT */</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">   TT = (BiTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(BiTNode));</span><br><span class="line">   <span class="keyword">if</span>(T)&#123;</span><br><span class="line">        TT-&gt;data = T-&gt;data;</span><br><span class="line">        TT-&gt;lchild = T-&gt;lchild;</span><br><span class="line">        TT-&gt;rchild = T-&gt;rchild;</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;lchild) CopyBiTree(T-&gt;lchild,TT-&gt;lchild);</span><br><span class="line">        <span class="keyword">if</span>(T-&gt;rchild)CopyBiTree(T-&gt;rchild,TT-&gt;rchild);</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">else</span>  <span class="built_in">free</span>(TT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+	
+	
+    
+    
+	
+  <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------Page's over<i class="fa fa-paw"></i>Thanks for reading-------------</div>
+    
+</div>
+        
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <p><span>本文标题:</span><a href="/2018/12/06/二叉树学习笔记/">二叉树学习笔记之遍历二叉树</a></p>
+  <p><span>本文作者:</span><a href="#">SherlockYang</a></p>
+  <p><span>发布时间:</span>2018年12月06日 - 23:12</p>
+  <p><span>最后更新:</span>2018年12月08日 - 14:12</p>
+  <p><span>原始链接:</span><a href="/2018/12/06/二叉树学习笔记/" title="二叉树学习笔记之遍历二叉树">https://sherlock-y.com/2018/12/06/二叉树学习笔记/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sherlock-y.com/2018/12/06/二叉树学习笔记/"  aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    $(".fa-clipboard").click(function(){
+      clipboard.on('success', function(){
+        swal({   
+          title: "",   
+          text: '复制成功',
+          icon: "success", 
+          showConfirmButton: true
+          });
+    });
+    });  
+</script>
+
+
+      
+	</div>
+	
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果文章内容对你有帮助，就赏博主一瓶维他奶吧~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="SherlockYang 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="SherlockYang 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/二叉树/" rel="tag"><i class="fa fa-tag"></i> 二叉树</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/21/如何优雅的使用本博客/" rel="next" title="如何优雅的使用本博客">
+                <i class="fa fa-chevron-left"></i> 如何优雅的使用本博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDQxMS8xNjkzOA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://i.loli.net/2018/10/20/5bcb16a6ca9a1.jpg"
+                alt="SherlockYang" />
+            
+              <p class="site-author-name" itemprop="name">SherlockYang</p>
+              <p class="site-description motion-element" itemprop="description">Nice to meet you!</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/sherlockhsyoung" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://blog.csdn.net/sherlocksy" target="_blank" title="CSDN">
+                      
+                        <i class="fa fa-fw fa-pencil-square-o"></i>CSDN</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/yourname" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://segmentfault.com/" target="_blank" title="segmentfault">
+                      
+                        <i class="fa fa-fw fa-key"></i>segmentfault</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://allen-yu.com" title="Allen Home" target="_blank">Allen Home</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.str-mo.com" title="字节莫的个人博客" target="_blank">字节莫的个人博客</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+		  <br>
+		  
+		  <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=29498914&auto=1&height=66"></iframe>
+		  
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树基础知识"><span class="nav-number">1.</span> <span class="nav-text">二叉树基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树的性质"><span class="nav-number">1.2.</span> <span class="nav-text">二叉树的性质</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#满二叉树与完全二叉树"><span class="nav-number">1.3.</span> <span class="nav-text">满二叉树与完全二叉树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的存储结构"><span class="nav-number">2.</span> <span class="nav-text">二叉树的存储结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#顺序存储"><span class="nav-number">2.0.1.</span> <span class="nav-text">顺序存储</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#链式存储"><span class="nav-number">2.0.2.</span> <span class="nav-text">链式存储</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二叉树的遍历"><span class="nav-number">3.</span> <span class="nav-text">二叉树的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先来认识一下遍历"><span class="nav-number">3.1.</span> <span class="nav-text">首先来认识一下遍历</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先序遍历"><span class="nav-number">3.2.</span> <span class="nav-text">先序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归遍历"><span class="nav-number">3.2.1.</span> <span class="nav-text">递归遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归遍历"><span class="nav-number">3.2.2.</span> <span class="nav-text">非递归遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#中序遍历"><span class="nav-number">3.3.</span> <span class="nav-text">中序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归遍历-1"><span class="nav-number">3.3.1.</span> <span class="nav-text">递归遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归遍历-1"><span class="nav-number">3.3.2.</span> <span class="nav-text">非递归遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后序遍历"><span class="nav-number">3.4.</span> <span class="nav-text">后序遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#递归遍历-2"><span class="nav-number">3.4.1.</span> <span class="nav-text">递归遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非递归遍历-2"><span class="nav-number">3.4.2.</span> <span class="nav-text">非递归遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#层次遍历"><span class="nav-number">3.5.</span> <span class="nav-text">层次遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用队列的非递归遍历"><span class="nav-number">3.5.1.</span> <span class="nav-text">使用队列的非递归遍历</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遍历的应用"><span class="nav-number">3.6.</span> <span class="nav-text">遍历的应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#求二叉树深度"><span class="nav-number">3.6.1.</span> <span class="nav-text">求二叉树深度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#销毁二叉树"><span class="nav-number">3.6.2.</span> <span class="nav-text">销毁二叉树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除指定元素结点的子树"><span class="nav-number">3.6.3.</span> <span class="nav-text">删除指定元素结点的子树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制二叉树"><span class="nav-number">3.6.4.</span> <span class="nav-text">复制二叉树</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SherlockYang</span>
+
+  
+</div>
+
+
+<!--
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">本博客全站共7.2k字</span>
+</div>
+
+
+
+<span class="post-meta-divider">|</span>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+-->
+
+  
+
+
+<!--
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+-->
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("uUihR20zbqW1A0FKtEOUG7UD-gzGzoHsz", "eAUknO9DmDYFH4WzuEN24E2i");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  
+</body>
+</html>
