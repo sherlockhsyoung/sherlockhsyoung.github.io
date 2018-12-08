@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/12/06/5c09439aaab73.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/12/06/5c09443115030.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/12/06/5c0944883518b.jpg">
-<meta property="og:updated_time" content="2018-12-08T06:35:06.165Z">
+<meta property="og:updated_time" content="2018-12-08T08:54:15.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3 transform属性及其matrix矩阵学习">
 <meta name="twitter:description" content="前言  最近做的一个小网页里需要写一个小转盘，在获取旋转角度时，发现transform的返回值是一段奇怪的参数，后来多方查阅后才了解，返回值是一个matrix()矩阵，matrix()这个东西，其实表示的是使元素发生变化的本质…">
@@ -493,7 +493,7 @@
 </ul>
 <h1 id="transform属性的matrix"><a href="#transform属性的matrix" class="headerlink" title="transform属性的matrix()"></a>transform属性的matrix()</h1><p>如果是2D变换，括号里就是6个值的矩阵，如果是3D变换，括号里就是4*4的16个值的矩阵，以下我们讨论的是2D变换</p>
 <p>写法如下： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(a,b,c,d,e,f);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">a</span>,<span class="selector-tag">b</span>,<span class="selector-tag">c</span>,<span class="selector-tag">d</span>,<span class="selector-tag">e</span>,<span class="selector-tag">f</span>);</span><br></pre></td></tr></table></figure>
 <p>a,b,c,d,e,f的六个参数实际上对应的是一个矩阵</p>
 <p><img src="https://i.loli.net/2018/12/06/5c09439aaab73.jpg" alt="img"></p>
 <p>而如果要使元素的坐标变化，其中是实现原理如下：</p>
@@ -505,9 +505,9 @@
 <p>显然，在a,b,c,d值不改变的情况下，改变e,f的值就是改变 <strong>x’</strong> ,<br><strong>y’</strong> 的常数项</p>
 <p>所以，若只改变e,f的值，就相当于改变元素的偏移，(e,f)其实就是元素的中心点位置坐标</p>
 <p>实际上也就是</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(a, b, c, d, e, f);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">a</span>, <span class="selector-tag">b</span>, <span class="selector-tag">c</span>, <span class="selector-tag">d</span>, <span class="selector-tag">e</span>, <span class="selector-tag">f</span>);</span><br></pre></td></tr></table></figure>
 <p>相当于</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: translate(e px, f px);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">translate</span>(<span class="selector-tag">e</span> <span class="selector-tag">px</span>, <span class="selector-tag">f</span> <span class="selector-tag">px</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>缩放(scale)</strong></li>
 </ul>
@@ -515,39 +515,39 @@
 <p>显然，若改变x系数倍数而不改变y系数，则只改变a的值</p>
 <p>同理，改变y则需只改变d的值</p>
 <p>所以</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(a, 0, 0, d, 0, 0);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">a</span>, 0, 0, <span class="selector-tag">d</span>, 0, 0);</span><br></pre></td></tr></table></figure>
 <p>相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: scale(a, d);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">scale</span>(<span class="selector-tag">a</span>, <span class="selector-tag">d</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>旋转(rotate)</strong></li>
 </ul>
 <p>旋转相对复杂些，涉及到三角函数的变换，与a,b,c,d参数有关</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">cos</span>θ,<span class="selector-tag">sin</span>θ,<span class="selector-tag">-sin</span>θ,<span class="selector-tag">cos</span>θ,0,0)</span><br></pre></td></tr></table></figure>
 <p>矩阵变换实际长这样</p>
 <p><img src="https://i.loli.net/2018/12/06/5c0944883518b.jpg" alt="img"></p>
 <p>所以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">cos</span>θ,<span class="selector-tag">sin</span>θ,<span class="selector-tag">-sin</span>θ,<span class="selector-tag">cos</span>θ,0,0)</span><br></pre></td></tr></table></figure>
 <p>相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: transform:rotate(θ化为弧度制 deg);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">transform</span><span class="selector-pseudo">:rotate(</span>θ化为弧度制 <span class="selector-tag">deg</span>);</span><br></pre></td></tr></table></figure>
 <p>若需要获取元素的rotate(θ)的旋转角度θ，则需要利用返回值中的参数值cosθ与sinθ</p>
 <p>问题也就转化为：已知sinθ和cosθ，求θ值。这里就需要用到反三角函数了，是个数学问题。</p>
 <ul>
 <li><strong>倾斜(skew)</strong></li>
 </ul>
 <p>倾斜也涉及三角函数，不过只改变的是tanθ的值，只与b,c参数有关，方法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(1,tan(θy),tan(θx),1,0,0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(1,<span class="selector-tag">tan</span>(θ<span class="selector-tag">y</span>),<span class="selector-tag">tan</span>(θ<span class="selector-tag">x</span>),1,0,0)</span><br></pre></td></tr></table></figure>
 <p>利用矩阵运算后的结果：</p>
 <p>x’ = x+y<em>tan(θx)+0 = x+y</em>tan(θx) </p>
 <p>y’ = x<em>tan(θy)+y+0 = x</em>tan(θy)+y</p>
 <p>所以</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">matrix</span>(<span class="selector-tag">cos</span>θ,<span class="selector-tag">sin</span>θ,<span class="selector-tag">-sin</span>θ,<span class="selector-tag">cos</span>θ,0,0)</span><br></pre></td></tr></table></figure>
 <p>相当于</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: rotate(θ化为弧度制deg);</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">transform</span>: <span class="selector-tag">rotate</span>(θ化为弧度制<span class="selector-tag">deg</span>);</span><br></pre></td></tr></table></figure>
 <ul>
 <li>matrix()的优点</li>
 </ul>
 <p>相比translate、scale、rotate、skew，matrix()可以实现镜像对称，其实原理就是相对于y=tanθ x直线进行翻转，下面是具体方法（k=θ）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix((1-k*k) / (1+k*k), 2k / (1 + k*k), 2k / (1 + k*k), (k*k - 1) / (1+k*k), 0, 0)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform: matrix((1-k*k) / (1+k*k), 2k / (1 + k*k), 2k / (1 + k*k), (k*k - 1) / (1+k*k), 0, 0)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -575,7 +575,7 @@
   <p><span>本文标题:</span><a href="/2018/10/21/对CSS3 transform属性的学习/">CSS3 transform属性及其matrix矩阵学习</a></p>
   <p><span>本文作者:</span><a href="#">SherlockYang</a></p>
   <p><span>发布时间:</span>2018年10月21日 - 00:10</p>
-  <p><span>最后更新:</span>2018年12月08日 - 14:12</p>
+  <p><span>最后更新:</span>2018年12月08日 - 16:12</p>
   <p><span>原始链接:</span><a href="/2018/10/21/对CSS3 transform属性的学习/" title="CSS3 transform属性及其matrix矩阵学习">https://sherlock-y.com/2018/10/21/对CSS3 transform属性的学习/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://sherlock-y.com/2018/10/21/对CSS3 transform属性的学习/"  aria-label="复制成功！"></i></span>
   </p>
@@ -661,8 +661,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/06/二叉树学习笔记/" rel="prev" title="二叉树学习笔记之遍历二叉树">
-                二叉树学习笔记之遍历二叉树 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/06/二叉树学习笔记/" rel="prev" title="二叉树学习笔记（一）之遍历二叉树">
+                二叉树学习笔记（一）之遍历二叉树 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -749,7 +749,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
